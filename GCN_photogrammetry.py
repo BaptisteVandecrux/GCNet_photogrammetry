@@ -22,13 +22,13 @@ import os
 import cv2 # OpenCV
 
 # -------------------------------- chdir
-if os.getlogin() == 'maiken':
-    base_path = '/Users/jason/Dropbox/GCNet_photogrammetry/'
+if os.getlogin() == 'Maiken':
+    base_path = '/Users/Maiken/OneDrive/PUK/GCNet_photogrammetry/'
 elif os.getlogin() == 'jason':
     base_path = '/Users/jason/Dropbox/GCNet_photogrammetry/'
 
 #%%
-img=cv2.imread(base_path+'/img/DY2 1997 J Box.jpg', 0)
+img=cv2.imread(base_path+'/img/DY2 1997 04 18 J Box.jpg', 0)
 
 cv2.imshow('image', img)
 
