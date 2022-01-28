@@ -203,12 +203,23 @@ elif os.getlogin() == 'jason':
     base_path = '/Users/jason/Dropbox/GCNet_photogrammetry/'
 
 os.system('ls -lF '+base_path)
-#%%
-img_filename='DY2 1996 05 28a J Box.jpg'
-img_filename='DY2 1997 04 18a J Box.jpg'
-img_filename='DY2 1998 04 27b pre2 J Box.jpg'
 
-img=cv2.imread(base_path+'/img/'+img_filename, 0)
+#%% close the window
+cv2.destroyAllWindows()
+
+#%%
+img_filename='DY2 1996 05 28a J Box'
+img_filename='DY2 1997 04 18a J Box'
+img_filename='DY2 1998 04 27b pre2 J Box'
+# img_filename='DY2 1998 04 27a pre1 J Box' # Maiken pls do this one
+img_filename='DY2 1998 04 29b post J Box'
+# img_filename='DY2 1998 04 29a post J Box' # Maiken pls do this one
+img_filename='DY2 2006 05 07a pre'
+img_filename='DY2 2006 05 07a post'
+img_filename='DY2 2006 05 07b pre' # Maiken pls do this one
+img_filename='DY2 2006 05 07b post' # Maiken pls do this one
+
+img=cv2.imread(base_path+'/img/'+img_filename+'.jpg', 0)
 
 cv2.imshow('image', img)
 
@@ -258,7 +269,7 @@ cv2.setMouseCallback('image', click_event)
 #%% image scale
 wind_sensor_dz=0.277 # meters
 
-if img_filename=='DY2 1996 05 28a J Box.jpg':
+if img_filename=='DY2 1996 05 28a J Box':
     profile_lower_y=1517 ; profile_upper_y=1109 # to check profile dz
     bottom_of_sonic_1=1230 ; ground_under_sonic1=1995
     bottom_of_sonic_2=1167 ; ground_under_sonic2=1933
@@ -268,7 +279,7 @@ if img_filename=='DY2 1996 05 28a J Box.jpg':
     THz2=989 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1053 ; top_of_wind_sensor_body=974 
 
-if img_filename=='DY2 1997 04 18a J Box.jpg':
+if img_filename=='DY2 1997 04 18a J Box':
     profile_lower_y=2384 ; profile_upper_y=1889 # to check profile dz
     bottom_of_sonic_1=2015 ; ground_under_sonic1=2553
     bottom_of_sonic_2=1905 ; ground_under_sonic2=2498
@@ -278,7 +289,17 @@ if img_filename=='DY2 1997 04 18a J Box.jpg':
     THz2=1755 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1825 ; top_of_wind_sensor_body=1735 
 
-if img_filename=='DY2 1998 04 27b pre2 J Box.jpg':
+if img_filename=='DY2 1998 04 27a pre1 J Box':
+    profile_lower_y=0 ; profile_upper_y=0 # to check profile dz
+    bottom_of_sonic_1=0 ; ground_under_sonic1=0
+    bottom_of_sonic_2=0 ; ground_under_sonic2=0
+    Wz1=0 ; ground_under_wind_1=0
+    Wz2=0 ; ground_under_wind_2=ground_under_wind_1
+    THz1=0 ; ground_under_TH_1=0
+    THz2=0 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=0 ; top_of_wind_sensor_body=0 
+
+if img_filename=='DY2 1998 04 27b pre2 J Box':
     profile_lower_y=2129 ; profile_upper_y=1505 # to check profile dz
     bottom_of_sonic_1=1635 ; ground_under_sonic1=1979
     bottom_of_sonic_2=1455 ; ground_under_sonic2=1916
@@ -288,6 +309,36 @@ if img_filename=='DY2 1998 04 27b pre2 J Box.jpg':
     THz2=1266 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1398 ; top_of_wind_sensor_body=1241 
 
+if img_filename=='DY2 1998 04 29b post J Box':
+    profile_lower_y=1095 ; profile_upper_y=870 # to check profile dz
+    bottom_of_sonic_1=943 ; ground_under_sonic1=1358
+    bottom_of_sonic_2=637 ; ground_under_sonic2=1297
+    Wz1=1010 ; ground_under_wind_1=1357
+    Wz2=781 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1013 ; ground_under_TH_1=1334
+    THz2=783 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1061 ; top_of_wind_sensor_body=1004
+
+if img_filename=='DY2 2006 05 07a pre':
+    profile_lower_y=1579 ; profile_upper_y=1164 # to check profile dz
+    bottom_of_sonic_1=1297 ; ground_under_sonic1=1635
+    bottom_of_sonic_2=1120 ; ground_under_sonic2=1560
+    Wz1=1460 ; ground_under_wind_1=1819
+    Wz2=987 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1435 ; ground_under_TH_1=1708
+    THz2=1039 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1089 ; top_of_wind_sensor_body=975
+    
+if img_filename=='DY2 2006 05 07a post':
+    profile_lower_y=811 ; profile_upper_y=550 # to check profile dz
+    bottom_of_sonic_1=643 ; ground_under_sonic1=1653
+    bottom_of_sonic_2=449 ; ground_under_sonic2=1645
+    Wz1=724 ; ground_under_wind_1=1635
+    Wz2=460 ; ground_under_wind_2=ground_under_wind_1
+    THz1=730 ; ground_under_TH_1=1653
+    THz2=472 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=783 ; top_of_wind_sensor_body=716
+    
 image_scale=(bottom_of_wind_sensor-top_of_wind_sensor_body)/wind_sensor_dz # pixels per m
 print("image_scale = {:.0f}".format(image_scale)+' pixels per m')
 
@@ -357,7 +408,7 @@ cv2.destroyAllWindows()
 # if __name__=="__main__":
  
 #     # reading the image
-#     img = cv2.imread('lena.jpg', 1)
+#     img = cv2.imread('lena', 1)
  
 #     # displaying the image
 #     cv2.imshow('image', img)
