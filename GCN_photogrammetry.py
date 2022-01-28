@@ -215,58 +215,68 @@ img_filename='DY2 1998 04 27b pre2 J Box'
 img_filename='DY2 1998 04 29b post J Box'
 # img_filename='DY2 1998 04 29a post J Box' # Maiken pls do this one
 img_filename='DY2 2006 05 07a pre'
-img_filename='DY2 2006 05 07a post'
-img_filename='DY2 2006 05 07b pre' # Maiken pls do this one
-img_filename='DY2 2006 05 07b post' # Maiken pls do this one
+# img_filename='DY2 2006 05 07a post'
+# img_filename='DY2 2006 05 07b pre' # Maiken pls redo DY2 2006 05 07a and b pre and compare if you get similar results. If the results are very different, ideas why?
+# img_filename='DY2 2006 05 07b post' # Maiken pls do this one
+# img_filename='DY2 2007 04 25a' # Maiken pls do this one
+# img_filename='DY2 2007 04 25b' # Maiken pls do this one
+# img_filename='DY2 2007 04 25c' # Maiken pls do this one
+# img_filename='DY2 2007 04 25d' # Maiken pls do this one
+# img_filename='DY2 2008 05 03a' # Maiken pls do this one
+# img_filename='DY2 2008 05 03b' # Maiken pls do this one
+# img_filename='DY2 2008 05 03c' # Maiken pls do this one
 
-img=cv2.imread(base_path+'/img/'+img_filename+'.jpg', 0)
+# do_image=0
 
-cv2.imshow('image', img)
+# if do_image:
+#     img=cv2.imread(base_path+'/img/'+img_filename+'.jpg', 0)
+    
+#     cv2.imshow('image', img)
+    
+#     # function to display the coordinates of
+#     # of the points clicked on the image
+#     def click_event(event, x, y, flags, params):
+     
+#         # checking for left mouse clicks
+#         if event == cv2.EVENT_LBUTTONDOWN:
+     
+#             # displaying the coordinates
+#             # on the Shell
+#             print(x, ' ', y)
+     
+#             # displaying the coordinates
+#             # on the image window
+#             font = cv2.FONT_HERSHEY_SIMPLEX
+#             cv2.putText(img, str(x) + ',' +
+#                         str(y), (x,y), font,
+#                         1, (255, 0, 0), 2)
+#             cv2.imshow('image', img)
+     
+#         # checking for right mouse clicks    
+#         if event==cv2.EVENT_RBUTTONDOWN:
+     
+#             # displaying the coordinates
+#             # on the Shell
+#             print(x, ' ', y)
+     
+#             # displaying the coordinates
+#             # on the image window
+#             font = cv2.FONT_HERSHEY_SIMPLEX
+#             b = img[y, x, 0]
+#             g = img[y, x, 1]
+#             r = img[y, x, 2]
+#             cv2.putText(img, str(b) + ',' +
+#                         str(g) + ',' + str(r),
+#                         (x,y), font, 1,
+#                         (255, 255, 0), 2)
+#             cv2.imshow('image', img)
+#             # return(x,y)
+    
+#     # setting mouse handler for the image
+#     # and calling the click_event() function
+#     cv2.setMouseCallback('image', click_event)
 
-# function to display the coordinates of
-# of the points clicked on the image
-def click_event(event, x, y, flags, params):
- 
-    # checking for left mouse clicks
-    if event == cv2.EVENT_LBUTTONDOWN:
- 
-        # displaying the coordinates
-        # on the Shell
-        print(x, ' ', y)
- 
-        # displaying the coordinates
-        # on the image window
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(img, str(x) + ',' +
-                    str(y), (x,y), font,
-                    1, (255, 0, 0), 2)
-        cv2.imshow('image', img)
- 
-    # checking for right mouse clicks    
-    if event==cv2.EVENT_RBUTTONDOWN:
- 
-        # displaying the coordinates
-        # on the Shell
-        print(x, ' ', y)
- 
-        # displaying the coordinates
-        # on the image window
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        b = img[y, x, 0]
-        g = img[y, x, 1]
-        r = img[y, x, 2]
-        cv2.putText(img, str(b) + ',' +
-                    str(g) + ',' + str(r),
-                    (x,y), font, 1,
-                    (255, 255, 0), 2)
-        cv2.imshow('image', img)
-        # return(x,y)
-
-# setting mouse handler for the image
-# and calling the click_event() function
-cv2.setMouseCallback('image', click_event)
-
-#%% image scale
+# # %% image scale
 wind_sensor_dz=0.277 # meters
 
 if img_filename=='DY2 1996 05 28a J Box':
@@ -339,6 +349,16 @@ if img_filename=='DY2 2006 05 07a post':
     THz2=472 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=783 ; top_of_wind_sensor_body=716
     
+if img_filename=='DY2 2006 05 07b pre':
+    profile_lower_y=1642 ; profile_upper_y=1180 # to check profile dz
+    bottom_of_sonic_1=1358 ; ground_under_sonic1=1846
+    bottom_of_sonic_2=1139 ; ground_under_sonic2=1989
+    Wz1=1458 ; ground_under_wind_1=1888
+    Wz2=990 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1487 ; ground_under_TH_1=1876
+    THz2=1044 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1092 ; top_of_wind_sensor_body=977
+
 image_scale=(bottom_of_wind_sensor-top_of_wind_sensor_body)/wind_sensor_dz # pixels per m
 print("image_scale = {:.0f}".format(image_scale)+' pixels per m')
 
@@ -360,6 +380,7 @@ print("wind 2 z = {:.3f}".format(Wz2)+' m')
 print("wind dz = {:.3f}".format(Wz2-Wz1)+' m, should equal '+"profile_dz = {:.3f}".format(profile_dz)+' m')
 
 ErrorW=abs((Wz2-Wz1)-profile_dz)
+print("ErrorW= {:.3f}".format(ErrorW)+" m")
 
 THz1=(ground_under_TH_1-THz1)/image_scale # pixels per m
 print("TH 1 z = {:.3f}".format(THz1)+' m')
@@ -370,12 +391,15 @@ print("TH 2 z = {:.3f}".format(THz2)+' m')
 print("TH dz = {:.3f}".format(THz2-THz1)+' m, should equal '+"profile_dz = {:.3f}".format(profile_dz)+' m')
 
 ErrorTH=abs((THz2-THz1)-profile_dz)
+print("ErrorTH= {:.3f}".format(ErrorTH)+" m")
 
 site=img_filename[0:3]
 year=img_filename[4:8]
 month=img_filename[9:11]
 day=img_filename[12:14]
-abc=img_filename[14:15]
+abc=img_filename[14:]
+abc=abc.replace(' J Box','')
+abc=abc.replace(' via D Houtz','')
 
 df2 = pd.DataFrame(columns = ['site', 'year','month','day','abc','SH1','SH2','Wz1','Wz2','THz1','THz2','ErrorW','ErrorTH']) 
 # df2.index.name = 'index'
