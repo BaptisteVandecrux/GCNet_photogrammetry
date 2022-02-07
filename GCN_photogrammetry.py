@@ -208,11 +208,11 @@ os.system('ls -lF '+base_path)
 cv2.destroyAllWindows()
 
 #%%
-img_filename='DY2 1996 05 28a J Box'
-img_filename='DY2 1997 04 18a J Box'
-img_filename='DY2 1998 04 27b pre2 J Box'
+#img_filename='DY2 1996 05 28a J Box'
+#img_filename='DY2 1997 04 18a J Box'
+#img_filename='DY2 1998 04 27b pre2 J Box'
 # img_filename='DY2 1998 04 27a pre1 J Box' # Maiken pls do this one
-img_filename='DY2 1998 04 29b post J Box'
+#img_filename='DY2 1998 04 29b post J Box'
 # img_filename='DY2 1998 04 29a post J Box' # Maiken pls do this one
 img_filename='DY2 2006 05 07a pre'
 # img_filename='DY2 2006 05 07a post'
@@ -226,55 +226,58 @@ img_filename='DY2 2006 05 07a pre'
 # img_filename='DY2 2008 05 03b' # Maiken pls do this one
 # img_filename='DY2 2008 05 03c' # Maiken pls do this one
 
-# do_image=0
+do_image=1
 
-# if do_image:
-#     img=cv2.imread(base_path+'/img/'+img_filename+'.jpg', 0)
+if do_image:
+    img=cv2.imread(base_path+'/img/'+img_filename+'.jpg', 0)
+    cv2.namedWindow('image', cv2.WINDOW_NORMAL) # need this to be able to resize image to fit to screen
+    cv2.imshow('image', img)
     
-#     cv2.imshow('image', img)
+    # function to display the coordinates of
+    # of the points clicked on the image
+    def click_event(event, x, y, flags, params):
+     
+        # checking for left mouse clicks
+        if event == cv2.EVENT_LBUTTONDOWN:
+     
+            # displaying the coordinates
+            # on the Shell
+            print(x, ' ', y)
+     
+            # displaying the coordinates
+            # on the image window
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            cv2.putText(img, str(x) + ',' +
+                        str(y), (x,y), font,
+                        1, (255, 0, 0), 2)
+            cv2.imshow('image', img)
+            #cv2.imshow('image', imS)
+     
+        # checking for right mouse clicks    
+        if event==cv2.EVENT_RBUTTONDOWN:
+     
+            # displaying the coordinates
+            # on the Shell
+            print(x, ' ', y)
+     
+            # displaying the coordinates
+            # on the image window
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            b = img[y, x, 0]
+            g = img[y, x, 1]
+            r = img[y, x, 2]
+            cv2.putText(img, str(b) + ',' +
+                        str(g) + ',' + str(r),
+                        (x,y), font, 1,
+                        (255, 255, 0), 2)
+            cv2.imshow('image', img)
+            #cv2.imshow('image', imS)
+            # return(x,y)
     
-#     # function to display the coordinates of
-#     # of the points clicked on the image
-#     def click_event(event, x, y, flags, params):
-     
-#         # checking for left mouse clicks
-#         if event == cv2.EVENT_LBUTTONDOWN:
-     
-#             # displaying the coordinates
-#             # on the Shell
-#             print(x, ' ', y)
-     
-#             # displaying the coordinates
-#             # on the image window
-#             font = cv2.FONT_HERSHEY_SIMPLEX
-#             cv2.putText(img, str(x) + ',' +
-#                         str(y), (x,y), font,
-#                         1, (255, 0, 0), 2)
-#             cv2.imshow('image', img)
-     
-#         # checking for right mouse clicks    
-#         if event==cv2.EVENT_RBUTTONDOWN:
-     
-#             # displaying the coordinates
-#             # on the Shell
-#             print(x, ' ', y)
-     
-#             # displaying the coordinates
-#             # on the image window
-#             font = cv2.FONT_HERSHEY_SIMPLEX
-#             b = img[y, x, 0]
-#             g = img[y, x, 1]
-#             r = img[y, x, 2]
-#             cv2.putText(img, str(b) + ',' +
-#                         str(g) + ',' + str(r),
-#                         (x,y), font, 1,
-#                         (255, 255, 0), 2)
-#             cv2.imshow('image', img)
-#             # return(x,y)
-    
-#     # setting mouse handler for the image
-#     # and calling the click_event() function
-#     cv2.setMouseCallback('image', click_event)
+    # setting mouse handler for the image
+    # and calling the click_event() function
+    cv2.setMouseCallback('image', click_event)
+    cv2.waitKey(0)   # pop-up window doesnt respond, trying this
 
 # # %% image scale
 wind_sensor_dz=0.277 # meters
@@ -329,7 +332,7 @@ if img_filename=='DY2 1998 04 29b post J Box':
     THz2=783 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1061 ; top_of_wind_sensor_body=1004
 
-if img_filename=='DY2 2006 05 07a pre':
+if img_filename=='DY2 2006 05 07a pre': # Jasons numbers
     profile_lower_y=1579 ; profile_upper_y=1164 # to check profile dz
     bottom_of_sonic_1=1297 ; ground_under_sonic1=1635
     bottom_of_sonic_2=1120 ; ground_under_sonic2=1560
@@ -338,6 +341,16 @@ if img_filename=='DY2 2006 05 07a pre':
     THz1=1435 ; ground_under_TH_1=1708
     THz2=1039 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1089 ; top_of_wind_sensor_body=975
+
+# if img_filename=='DY2 2006 05 07a pre': # Maikens numbers
+#     profile_lower_y=1581 ; profile_upper_y=1160 # to check profile dz
+#     bottom_of_sonic_1=1291 ; ground_under_sonic1=1636
+#     bottom_of_sonic_2=1113 ; ground_under_sonic2=1506
+#     Wz1=1457 ; ground_under_wind_1=1805
+#     Wz2=0 ; ground_under_wind_2=ground_under_wind_1
+#     THz1=1427 ; ground_under_TH_1=1696
+#     THz2=1035 ; ground_under_TH_2=ground_under_TH_1
+#     bottom_of_wind_sensor=1551 ; top_of_wind_sensor_body=1460 
     
 if img_filename=='DY2 2006 05 07a post':
     profile_lower_y=811 ; profile_upper_y=550 # to check profile dz
@@ -418,7 +431,11 @@ df2["ErrorW"]=pd.Series(ErrorW)
 df2["ErrorTH"]=pd.Series(ErrorTH)
 
 # df2 = df2.loc[:, ~df2.columns.str.contains('^Unnamed')]
-ofile='/Users/jason/Dropbox/GCNet_photogrammetry/output/'+site+'_'+year+'_'+month+'_'+day+abc+'.csv'
+# -------------------------------- chdir
+if os.getlogin() == 'Maiken':
+    ofile = '/Users/Maiken/OneDrive/PUK/GCNet_photogrammetry/output/'+site+'_'+year+'_'+month+'_'+day+abc+'.csv'
+elif os.getlogin() == 'jason':
+    ofile='/Users/jason/Dropbox/GCNet_photogrammetry/output/'+site+'_'+year+'_'+month+'_'+day+abc+'.csv'
 df2.to_csv(ofile,index=None, float_format="%.3f")
 
 #%% close the window
