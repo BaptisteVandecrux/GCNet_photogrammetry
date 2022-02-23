@@ -214,6 +214,8 @@ cv2.destroyAllWindows()
 #img_filename='DY2 1998 04 27a pre1 J Box' # Maiken pls do this one - DONE
 #img_filename='DY2 1998 04 29b post J Box'
 #img_filename='DY2 1998 04 29a post J Box' # Maiken pls do this one - DONE
+# img_filename='DY2 1999_PRE J Box'
+#img_filename= 'DY2 2005 05 26a straightened'
 #img_filename='DY2 2006 05 07a pre'
 #img_filename='DY2 2006 05 07a post'
 #img_filename='DY2 2006 05 07b pre' # Maiken pls redo DY2 2006 05 07a and b pre and compare if you get similar results. If the results are very different, ideas why? - DONE
@@ -224,7 +226,17 @@ cv2.destroyAllWindows()
 #img_filename='DY2 2007 04 25d' # Maiken pls do this one - DONE
 #img_filename='DY2 2008 05 03a' # Maiken pls do this one - DONE
 #img_filename='DY2 2008 05 03b' # Maiken pls do this one - DONE
-img_filename='DY2 2008 05 03c' # Maiken pls do this one - DONE
+#img_filename='DY2 2008 05 03c' # Maiken pls do this one - DONE
+#img_filename='DY2 2009 05 16 12 58 29 via D Houtz'
+# img_filename='DY2 2010 04 30 20 20 00 via D Houtz'
+# img_filename='DY2 2011 05 29 15 13 18 via D Houtz'
+# img_filename='DY2 2013 05 22 10 14 09 via D Houtz'
+# img_filename='DY2 2014 05 25 00 21 25 via D Houtz'
+# img_filename='DY2 2015 05 26 19 58 10 via D Houtz'
+# img_filename='DY2 2016 05 19 22 01 37 via D Houtz'
+# img_filename='DY2 2017 05 22 19 01 15 via D Houtz'
+# img_filename='DY2 2018 05 20 16 00 20 via D Houtz'
+img_filename='DY2 2019 05 17 23 43 41 via D Houtz'
 
 do_image=1
 
@@ -354,6 +366,26 @@ if img_filename=='DY2 1998 04 29b post J Box':
     THz1=1013 ; ground_under_TH_1=1334
     THz2=783 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1061 ; top_of_wind_sensor_body=1004
+    
+if img_filename=='DY2 1999_PRE J Box': 
+    profile_lower_y=2163 ; profile_upper_y=1862 # to check profile dz
+    bottom_of_sonic_1=1977 ; ground_under_sonic1=2310
+    bottom_of_sonic_2=1540 ; ground_under_sonic2=2261
+    Wz1=2031 ; ground_under_wind_1=2299
+    Wz2=1747 ; ground_under_wind_2=ground_under_wind_1
+    THz1=2064 ; ground_under_TH_1=2321
+    THz2=1758 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2091 ; top_of_wind_sensor_body=2026 
+    
+if img_filename=='DY2 2005 05 26a straightened': # sonic 2 very difficult to assess
+    profile_lower_y=1611 ; profile_upper_y=1187 # to check profile dz
+    bottom_of_sonic_1=1359 ; ground_under_sonic1=2016
+    bottom_of_sonic_2=1187 ; ground_under_sonic2=1914
+    Wz1=1443 ; ground_under_wind_1=2152
+    Wz2=960 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1483 ; ground_under_TH_1=2068
+    THz2=1081 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1541 ; top_of_wind_sensor_body=1435 
 
 # if img_filename=='DY2 2006 05 07a pre': # Jasons numbers
 #     profile_lower_y=1579 ; profile_upper_y=1164 # to check profile dz
@@ -435,15 +467,35 @@ if img_filename=='DY2 2007 04 25a': # One of the sonics is missing
     THz2=467 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=670 ; top_of_wind_sensor_body=621
     
-if img_filename=='DY2 2007 04 25b': 
-    profile_lower_y=1047 ; profile_upper_y=745 # to check profile dz
-    bottom_of_sonic_1=810 ; ground_under_sonic1=1895
-    bottom_of_sonic_2=745 ; ground_under_sonic2=1744
-    Wz1=930 ; ground_under_wind_1=1753
-    Wz2=634 ; ground_under_wind_2=ground_under_wind_1
-    THz1=933 ; ground_under_TH_1=1830
-    THz2=625 ; ground_under_TH_2=ground_under_TH_1
-    bottom_of_wind_sensor=998 ; top_of_wind_sensor_body=936 
+# if img_filename=='DY2 2007 04 25b': # first try
+#     profile_lower_y=1047 ; profile_upper_y=745 # to check profile dz
+#     bottom_of_sonic_1=810 ; ground_under_sonic1=1895
+#     bottom_of_sonic_2=745 ; ground_under_sonic2=1744
+#     Wz1=930 ; ground_under_wind_1=1753
+#     Wz2=634 ; ground_under_wind_2=ground_under_wind_1
+#     THz1=933 ; ground_under_TH_1=1830
+#     THz2=625 ; ground_under_TH_2=ground_under_TH_1
+#     bottom_of_wind_sensor=998 ; top_of_wind_sensor_body=936 
+    
+# if img_filename=='DY2 2007 04 25b': #second try
+#     profile_lower_y=1041 ; profile_upper_y=745 # to check profile dz
+#     bottom_of_sonic_1=816 ; ground_under_sonic1=1839
+#     bottom_of_sonic_2=748 ; ground_under_sonic2=1765
+#     Wz1=930 ; ground_under_wind_1=1799
+#     Wz2=631 ; ground_under_wind_2=ground_under_wind_1
+#     THz1=927 ; ground_under_TH_1=1830
+#     THz2=628 ; ground_under_TH_2=ground_under_TH_1
+#     bottom_of_wind_sensor=995 ; top_of_wind_sensor_body=927 
+    
+if img_filename=='DY2 2007 04 25b': #third try
+    profile_lower_y=1044 ; profile_upper_y=742 # to check profile dz
+    bottom_of_sonic_1=813 ; ground_under_sonic1=1867
+    bottom_of_sonic_2=751 ; ground_under_sonic2=1787
+    Wz1=930 ; ground_under_wind_1=1765
+    Wz2=628 ; ground_under_wind_2=ground_under_wind_1
+    THz1=927 ; ground_under_TH_1=1830
+    THz2=628 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=998 ; top_of_wind_sensor_body=924 
     
 if img_filename=='DY2 2007 04 25c':
     profile_lower_y=981 ; profile_upper_y=731 # to check profile dz
@@ -494,6 +546,116 @@ if img_filename=='DY2 2008 05 03c': # very difficult to see TH instruments
     THz1=1602 ; ground_under_TH_1=2417
     THz2=1199 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1571 ; top_of_wind_sensor_body=1445 
+    
+if img_filename=='DY2 2009 05 16 12 58 29 via D Houtz':
+    # sonic 2 missing/hiding behind pole
+    profile_lower_y=2821 ; profile_upper_y=2065 # to check profile dz
+    bottom_of_sonic_1=2341 ; ground_under_sonic1=3637
+    bottom_of_sonic_2=np.nan ; ground_under_sonic2=np.nan
+    Wz1=2545 ; ground_under_wind_1=3696
+    Wz2=1710 ; ground_under_wind_2=ground_under_wind_1
+    THz1=2585 ; ground_under_TH_1=3637
+    THz2=1868 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2723 ; top_of_wind_sensor_body=2539 
+    
+if img_filename=='DY2 2010 04 30 20 20 00 via D Houtz': 
+    # Sonic 1, TH1+2 missing or hiding
+    # difficult angle
+    profile_lower_y=3065 ; profile_upper_y=2289 # to check profile dz
+    bottom_of_sonic_1=np.nan ; ground_under_sonic1=np.nan
+    bottom_of_sonic_2=2216 ; ground_under_sonic2=3637
+    Wz1=2802 ; ground_under_wind_1=3742
+    Wz2=1887 ; ground_under_wind_2=ground_under_wind_1
+    THz1=np.nan ; ground_under_TH_1=np.nan
+    THz2=np.nan ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2993 ; top_of_wind_sensor_body=2789 
+    
+if img_filename=='DY2 2011 05 29 15 13 18 via D Houtz':
+    # difficult to assess TH1
+    profile_lower_y=1905 ; profile_upper_y=1544 # to check profile dz
+    bottom_of_sonic_1=1742 ; ground_under_sonic1=2977
+    bottom_of_sonic_2=1544 ; ground_under_sonic2=2999
+    Wz1=1708 ; ground_under_wind_1=2965
+    Wz2=1308 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1809 ; ground_under_TH_1=2937
+    THz2=1465 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1798 ; top_of_wind_sensor_body=1702 
+
+if img_filename=='DY2 2013 05 22 10 14 09 via D Houtz':
+    profile_lower_y=1809 ; profile_upper_y=1392 # to check profile dz
+    bottom_of_sonic_1=1623 ; ground_under_sonic1=3067
+    bottom_of_sonic_2=1471 ; ground_under_sonic2=2993
+    Wz1=1584 ; ground_under_wind_1=3157
+    Wz2=1133 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1714 ; ground_under_TH_1=3072
+    THz2=1308 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1680 ; top_of_wind_sensor_body=1584 
+
+if img_filename=='DY2 2014 05 25 00 21 25 via D Houtz': 
+    profile_lower_y=2398 ; profile_upper_y=1852 # to check profile dz
+    bottom_of_sonic_1=2086 ; ground_under_sonic1=3797
+    bottom_of_sonic_2=np.nan ; ground_under_sonic2=np.nan
+    Wz1=2143 ; ground_under_wind_1=3839
+    Wz2=1561 ; ground_under_wind_2=ground_under_wind_1
+    THz1=2228 ; ground_under_TH_1=3825
+    THz2=1703 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2285 ; top_of_wind_sensor_body=2143 
+
+if img_filename=='DY2 2015 05 26 19 58 10 via D Houtz':
+    #TH's hiding/missing
+    profile_lower_y=2611 ; profile_upper_y=1958 # to check profile dz
+    bottom_of_sonic_1=2271 ; ground_under_sonic1=3747
+    bottom_of_sonic_2=1951 ; ground_under_sonic2=2910
+    Wz1=2299 ; ground_under_wind_1=3853
+    Wz2=1554 ; ground_under_wind_2=ground_under_wind_1
+    THz1=np.nan ; ground_under_TH_1=np.nan
+    THz2=np.nan ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2448 ; top_of_wind_sensor_body=2292 
+
+
+if img_filename=='DY2 2016 05 19 22 01 37 via D Houtz': 
+    profile_lower_y=2746 ; profile_upper_y=2164 # to check profile dz
+    bottom_of_sonic_1=2398 ; ground_under_sonic1=3499
+    bottom_of_sonic_2=2122 ; ground_under_sonic2=3612
+    Wz1=2498 ; ground_under_wind_1=3541
+    Wz2=1845 ; ground_under_wind_2=ground_under_wind_1
+    THz1=2569 ; ground_under_TH_1=3456
+    THz2=2029 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2654 ; top_of_wind_sensor_body=2498 
+
+if img_filename=='DY2 2017 05 22 19 01 15 via D Houtz': 
+    # TH1+2 hiding/missing
+    profile_lower_y=2154 ; profile_upper_y=1640 # to check profile dz
+    bottom_of_sonic_1=1844 ; ground_under_sonic1=2608
+    bottom_of_sonic_2=1631 ; ground_under_sonic2=2622
+    Wz1=1946 ; ground_under_wind_1=2636
+    Wz2=1329 ; ground_under_wind_2=ground_under_wind_1
+    THz1=np.nan ; ground_under_TH_1=np.nan
+    THz2=np.nan ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2075 ; top_of_wind_sensor_body=1936 
+
+if img_filename=='DY2 2018 05 20 16 00 20 via D Houtz':
+    profile_lower_y=6071 ; profile_upper_y=4621 # to check profile dz
+    bottom_of_sonic_1=4768 ; ground_under_sonic1=7939
+    bottom_of_sonic_2=3748 ; ground_under_sonic2=7521
+    Wz1=5530 ; ground_under_wind_1=7644
+    Wz2=4129 ; ground_under_wind_2=ground_under_wind_1
+    THz1=5776 ; ground_under_TH_1=7706
+    THz2=4313 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=5850 ; top_of_wind_sensor_body=5543 
+
+if img_filename=='DY2 2019 05 17 23 43 41 via D Houtz': 
+    # TH1+2 missing/hiding
+    profile_lower_y=2355 ; profile_upper_y=1743 # to check profile dz
+    bottom_of_sonic_1=2052 ; ground_under_sonic1=3363
+    bottom_of_sonic_2=1761 ; ground_under_sonic2=3579
+    Wz1=2040 ; ground_under_wind_1=3523
+    Wz2=1360 ; ground_under_wind_2=ground_under_wind_1
+    THz1=np.nan ; ground_under_TH_1=np.nan
+    THz2=np.nan ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2200 ; top_of_wind_sensor_body=2034 
+
+
 
 
 image_scale=(bottom_of_wind_sensor-top_of_wind_sensor_body)/wind_sensor_dz # pixels per m
