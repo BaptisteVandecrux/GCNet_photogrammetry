@@ -201,6 +201,9 @@ if os.getlogin() == 'Maiken':
     base_path = '/Users/Maiken/OneDrive/PUK/GCNet_photogrammetry/'
 elif os.getlogin() == 'jason':
     base_path = '/Users/jason/Dropbox/GCNet_photogrammetry/'
+if os.getlogin() == 'maiken':
+    base_path= '/Users/maiken/Desktop/GCNet/GCNet_SWVF/'
+    z_path = '/Users/maiken/Desktop/GCNet/GCNet_photogrammetry/output/'
 
 os.system('ls -lF '+base_path)
 
@@ -238,7 +241,7 @@ img_filename='DY2 1999 04 17a pre J Box'
 # img_filename='DY2 2018 05 20 16 00 20 via D Houtz'
 # img_filename='DY2 2019 05 17 23 43 41 via D Houtz'
 
-do_image=0
+do_image=1
 
 if do_image:
     img=cv2.imread(base_path+'/img/'+img_filename+'.jpg', 0)
