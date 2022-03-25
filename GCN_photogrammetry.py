@@ -202,7 +202,7 @@ if os.getlogin() == 'Maiken':
 elif os.getlogin() == 'jason':
     base_path = '/Users/jason/Dropbox/GCNet_photogrammetry/'
 if os.getlogin() == 'maiken':
-    base_path= '/Users/maiken/Desktop/GCNet/GCNet_SWVF/'
+    base_path= '/Users/maiken/Desktop/GCNet/GCNet_photogrammetry/'
     z_path = '/Users/maiken/Desktop/GCNet/GCNet_photogrammetry/output/'
 
 os.system('ls -lF '+base_path)
@@ -217,7 +217,11 @@ cv2.destroyAllWindows()
 #img_filename='DY2 1998 04 27a pre1 J Box' # Maiken pls do this one - DONE
 #img_filename='DY2 1998 04 29b post J Box'
 #img_filename='DY2 1998 04 29a post J Box' # Maiken pls do this one - DONE
-img_filename='DY2 1999 04 17a pre J Box'
+#img_filename='DY2 1999 04 17a pre J Box'
+#img_filename='DY2 2002 05 24pre J Box'
+#img_filename='DY2 2002 05 24post J Box'
+# img_filename= 'DY2 2003 05 09a pre J Box'
+img_filename= 'DY2 2003 05 09a post J Box'
 #img_filename= 'DY2 2005 05 26a straightened'
 #img_filename='DY2 2006 05 07a pre'
 #img_filename='DY2 2006 05 07a post'
@@ -264,7 +268,7 @@ if do_image:
             font = cv2.FONT_HERSHEY_SIMPLEX
             cv2.putText(img, str(x) + ',' +
                         str(y), (x,y), font,
-                        1, (255, 0, 0), 2)
+                        0.5, (255, 0, 0), 1)
             cv2.imshow('image', img)
             #cv2.imshow('image', imS)
      
@@ -283,8 +287,8 @@ if do_image:
             r = img[y, x, 2]
             cv2.putText(img, str(b) + ',' +
                         str(g) + ',' + str(r),
-                        (x,y), font, 1,
-                        (255, 255, 0), 2)
+                        (x,y), font, 0.5,
+                        (255, 255, 0), 1)
             cv2.imshow('image', img)
             #cv2.imshow('image', imS)
             # return(x,y)
@@ -292,7 +296,16 @@ if do_image:
     # setting mouse handler for the image
     # and calling the click_event() function
     cv2.setMouseCallback('image', click_event)
-    cv2.waitKey(0)   # pop-up window doesnt respond, trying this
+    
+    # window closes by pressing 'esc'
+    while True:
+        k = cv2.waitKey(0)
+        #print(k)
+        if k == 27:
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+            break
+            
 
 # # %% image scale
 wind_sensor_dz=0.277 # meters
@@ -385,10 +398,48 @@ if img_filename=='DY2 1999 04 17a pre J Box':
     THz2=932 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1276 ; top_of_wind_sensor_body=1203 
     
+if img_filename=='DY2 2002 05 24pre J Box': 
+    # sonic 1 missing
+    profile_lower_y=543 ; profile_upper_y=422 # to check profile dz
+    bottom_of_sonic_1=np.nan ; ground_under_sonic1=np.nan
+    bottom_of_sonic_2=287 ; ground_under_sonic2=545
+    Wz1=491 ; ground_under_wind_1=562
+    Wz2=371; ground_under_wind_2=ground_under_wind_1
+    THz1=504 ; ground_under_TH_1=561
+    THz2=385 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=395 ; top_of_wind_sensor_body=367 
 
 
-
-
+if img_filename=='DY2 2002 05 24post J Box':
+    # Cannot see sonic 1, THz1, THz2
+    profile_lower_y=1205 ; profile_upper_y=927 # to check profile dz
+    bottom_of_sonic_1=np.nan ; ground_under_sonic1=np.nan
+    bottom_of_sonic_2=904 ; ground_under_sonic2=1561
+    Wz1=1106 ; ground_under_wind_1=1585
+    Wz2=763 ; ground_under_wind_2=ground_under_wind_1
+    THz1=np.nan ; ground_under_TH_1=np.nan
+    THz2=np.nan ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1170 ; top_of_wind_sensor_body=1098 
+    
+if img_filename=='DY2 2003 05 09a pre J Box': #template
+    profile_lower_y=372 ; profile_upper_y=272 # to check profile dz
+    bottom_of_sonic_1=303 ; ground_under_sonic1=433
+    bottom_of_sonic_2=262 ; ground_under_sonic2=430
+    Wz1=338 ; ground_under_wind_1=459
+    Wz2=229 ; ground_under_wind_2=ground_under_wind_1
+    THz1=337 ; ground_under_TH_1=448
+    THz2=242 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=251 ; top_of_wind_sensor_body=225 
+    
+if img_filename=='DY2 2003 05 09a post J Box': #template
+    profile_lower_y=316 ; profile_upper_y=232 # to check profile dz
+    bottom_of_sonic_1=253 ; ground_under_sonic1=590
+    bottom_of_sonic_2=np.nan ; ground_under_sonic2=np.nan
+    Wz1=286 ; ground_under_wind_1=588
+    Wz2=199 ; ground_under_wind_2=ground_under_wind_1
+    THz1=285 ; ground_under_TH_1=590
+    THz2=201 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=303 ; top_of_wind_sensor_body=283 
 
 
 if img_filename=='DY2 2005 05 26a straightened': # sonic 2 very difficult to assess
@@ -746,6 +797,8 @@ if os.getlogin() == 'Maiken':
     ofile = '/Users/Maiken/OneDrive/PUK/GCNet_photogrammetry/output/'+site+'_'+year+'_'+month+'_'+day+abc+'.csv'
 elif os.getlogin() == 'jason':
     ofile='/Users/jason/Dropbox/GCNet_photogrammetry/output/'+site+'_'+year+'_'+month+'_'+day+abc+'.csv'
+if os.getlogin() == 'maiken':
+    ofile= '/Users/maiken/Desktop/GCNet/GCNet_photogrammetry/output/'+site+'_'+year+'_'+month+'_'+day+abc+'.csv'
 df2.to_csv(ofile,index=None, float_format="%.3f")
 
 #%% close the window
