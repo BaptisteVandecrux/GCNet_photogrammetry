@@ -202,7 +202,7 @@ if os.getlogin() == 'Maiken':
 elif os.getlogin() == 'jason':
     base_path = '/Users/jason/Dropbox/GCNet_photogrammetry/'
 if os.getlogin() == 'maiken':
-    base_path= '/Users/maiken/Desktop/GCNet/GCNet_photogrammetry/'
+    base_path= '/Users/maiken/Desktop/GCNet/GCNET_photos_availability/photo_archive_of_GC-Net_AWS/'
     z_path = '/Users/maiken/Desktop/GCNet/GCNet_photogrammetry/output/'
 
 os.system('ls -lF '+base_path)
@@ -248,14 +248,14 @@ cv2.destroyAllWindows()
 # img_filename='DY2 2019 05 17 23 43 41 via D Houtz'
 
 # Crawford Point 1
-#img_filename = 'CP1 1995 J Box-2'
-#img_filename = 'CP1 1998A J Box'
-img_filename = 'CP1 2002 b J Box'
+img_filename = 'CP1 1995 05 23'
+# img_filename = 'CP1 1998 05 31a post J Box'
+# img_filename = 'CP1 2002 05 24 J Box-2'
 
 do_image=1
 
 if do_image:
-    img=cv2.imread(base_path+'/img/'+img_filename+'.jpg', 0)
+    img=cv2.imread(base_path+img_filename+'.jpg', 0)
     cv2.namedWindow('image', cv2.WINDOW_NORMAL) # need this to be able to resize image to fit to screen
     cv2.imshow('image', img)
     
@@ -743,7 +743,7 @@ if img_filename=='DY2 2019 05 17 23 43 41 via D Houtz':
     
 # Crawford Point 1
 
-if img_filename=='CP1 1995 J Box-2': 
+if img_filename=='CP1 1995 05 23': 
     profile_lower_y=1555 ; profile_upper_y=1012 # to check profile dz
     bottom_of_sonic_1=1130 ; ground_under_sonic1=2381
     bottom_of_sonic_2=724 ; ground_under_sonic2=2284
@@ -753,7 +753,7 @@ if img_filename=='CP1 1995 J Box-2':
     THz2=902 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1485 ; top_of_wind_sensor_body=1364 
     
-if img_filename=='CP1 1998A J Box': 
+if img_filename=='CP1 1998 05 31a post J Box': 
     profile_lower_y=2045 ; profile_upper_y=1673 # to check profile dz
     bottom_of_sonic_1=2059 ; ground_under_sonic1=2923
     bottom_of_sonic_2=908 ; ground_under_sonic2=3049
@@ -763,15 +763,15 @@ if img_filename=='CP1 1998A J Box':
     THz2=1512 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1614 ; top_of_wind_sensor_body=1435 
 
-if img_filename=='CP1 2002 b J Box': 
-    profile_lower_y=573 ; profile_upper_y=440 # to check profile dz
-    bottom_of_sonic_1=521 ; ground_under_sonic1=751
-    bottom_of_sonic_2=267 ; ground_under_sonic2=773
-    Wz1=533 ; ground_under_wind_1=724
-    Wz2=403 ; ground_under_wind_2=ground_under_wind_1
-    THz1=539 ; ground_under_TH_1=747
-    THz2=403 ; ground_under_TH_2=ground_under_TH_1
-    bottom_of_wind_sensor=428 ; top_of_wind_sensor_body=400 
+if img_filename=='CP1 2002 05 24 J Box-2': 
+    profile_lower_y=486 ; profile_upper_y=354 # to check profile dz
+    bottom_of_sonic_1=435 ; ground_under_sonic1=667
+    bottom_of_sonic_2=181 ; ground_under_sonic2=679
+    Wz1=447 ; ground_under_wind_1=636
+    Wz2=317 ; ground_under_wind_2=ground_under_wind_1
+    THz1=453 ; ground_under_TH_1=663
+    THz2=316 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=342 ; top_of_wind_sensor_body=315 
 
 
 
