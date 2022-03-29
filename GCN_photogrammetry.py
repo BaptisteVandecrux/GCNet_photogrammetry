@@ -211,6 +211,8 @@ os.system('ls -lF '+base_path)
 cv2.destroyAllWindows()
 
 #%%
+
+# DYE-2
 #img_filename='DY2 1996 05 28a J Box'
 #img_filename='DY2 1997 04 18a J Box'
 #img_filename='DY2 1998 04 27b pre2 J Box'
@@ -221,7 +223,7 @@ cv2.destroyAllWindows()
 #img_filename='DY2 2002 05 24pre J Box'
 #img_filename='DY2 2002 05 24post J Box'
 # img_filename= 'DY2 2003 05 09a pre J Box'
-img_filename= 'DY2 2003 05 09a post J Box'
+#img_filename= 'DY2 2003 05 09a post J Box'
 #img_filename= 'DY2 2005 05 26a straightened'
 #img_filename='DY2 2006 05 07a pre'
 #img_filename='DY2 2006 05 07a post'
@@ -244,6 +246,11 @@ img_filename= 'DY2 2003 05 09a post J Box'
 # img_filename='DY2 2017 05 22 19 01 15 via D Houtz'
 # img_filename='DY2 2018 05 20 16 00 20 via D Houtz'
 # img_filename='DY2 2019 05 17 23 43 41 via D Houtz'
+
+# Crawford Point 1
+#img_filename = 'CP1 1995 J Box-2'
+#img_filename = 'CP1 1998A J Box'
+img_filename = 'CP1 2002 b J Box'
 
 do_image=1
 
@@ -310,6 +317,18 @@ if do_image:
 # # %% image scale
 wind_sensor_dz=0.277 # meters
 
+# if img_filename=='DY2 1998 04 27a pre1 J Box': #template
+#     profile_lower_y=0 ; profile_upper_y=0 # to check profile dz
+#     bottom_of_sonic_1=0 ; ground_under_sonic1=0
+#     bottom_of_sonic_2=0 ; ground_under_sonic2=0
+#     Wz1=0 ; ground_under_wind_1=0
+#     Wz2=0 ; ground_under_wind_2=ground_under_wind_1
+#     THz1=0 ; ground_under_TH_1=0
+#     THz2=0 ; ground_under_TH_2=ground_under_TH_1
+#     bottom_of_wind_sensor=0 ; top_of_wind_sensor_body=0 
+
+# DYE-2
+
 if img_filename=='DY2 1996 05 28a J Box':
     profile_lower_y=1517 ; profile_upper_y=1109 # to check profile dz
     bottom_of_sonic_1=1230 ; ground_under_sonic1=1995
@@ -333,15 +352,7 @@ if img_filename=='DY2 1997 04 18a J Box':
     THz2=1755 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1825 ; top_of_wind_sensor_body=1735 
 
-# if img_filename=='DY2 1998 04 27a pre1 J Box': #template
-#     profile_lower_y=0 ; profile_upper_y=0 # to check profile dz
-#     bottom_of_sonic_1=0 ; ground_under_sonic1=0
-#     bottom_of_sonic_2=0 ; ground_under_sonic2=0
-#     Wz1=0 ; ground_under_wind_1=0
-#     Wz2=0 ; ground_under_wind_2=ground_under_wind_1
-#     THz1=0 ; ground_under_TH_1=0
-#     THz2=0 ; ground_under_TH_2=ground_under_TH_1
-#     bottom_of_wind_sensor=0 ; top_of_wind_sensor_body=0 
+
     
 if img_filename=='DY2 1998 04 27a pre1 J Box': 
     profile_lower_y=1845 ; profile_upper_y=1339 # to check profile dz
@@ -729,6 +740,38 @@ if img_filename=='DY2 2019 05 17 23 43 41 via D Houtz':
     THz1=np.nan ; ground_under_TH_1=np.nan
     THz2=np.nan ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=2200 ; top_of_wind_sensor_body=2034 
+    
+# Crawford Point 1
+
+if img_filename=='CP1 1995 J Box-2': 
+    profile_lower_y=1555 ; profile_upper_y=1012 # to check profile dz
+    bottom_of_sonic_1=1130 ; ground_under_sonic1=2381
+    bottom_of_sonic_2=724 ; ground_under_sonic2=2284
+    Wz1=1377 ; ground_under_wind_1=2335
+    Wz2=811 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1378 ; ground_under_TH_1=2227
+    THz2=902 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1485 ; top_of_wind_sensor_body=1364 
+    
+if img_filename=='CP1 1998A J Box': 
+    profile_lower_y=2045 ; profile_upper_y=1673 # to check profile dz
+    bottom_of_sonic_1=2059 ; ground_under_sonic1=2923
+    bottom_of_sonic_2=908 ; ground_under_sonic2=3049
+    Wz1=1872 ; ground_under_wind_1=3151
+    Wz2=1444 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1858 ; ground_under_TH_1=2811
+    THz2=1512 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1614 ; top_of_wind_sensor_body=1435 
+
+if img_filename=='CP1 2002 b J Box': 
+    profile_lower_y=573 ; profile_upper_y=440 # to check profile dz
+    bottom_of_sonic_1=521 ; ground_under_sonic1=751
+    bottom_of_sonic_2=267 ; ground_under_sonic2=773
+    Wz1=533 ; ground_under_wind_1=724
+    Wz2=403 ; ground_under_wind_2=ground_under_wind_1
+    THz1=539 ; ground_under_TH_1=747
+    THz2=403 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=428 ; top_of_wind_sensor_body=400 
 
 
 
