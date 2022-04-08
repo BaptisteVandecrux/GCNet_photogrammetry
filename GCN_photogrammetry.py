@@ -248,9 +248,13 @@ cv2.destroyAllWindows()
 # img_filename='DY2 2019 05 17 23 43 41 via D Houtz'
 
 # Crawford Point 1
-img_filename = 'CP1 1995 05 23'
+# img_filename = 'CP1 1995 05 23'
 # img_filename = 'CP1 1998 05 31a post J Box'
 # img_filename = 'CP1 2002 05 24 J Box-2'
+#img_filename = 'CP1 2005 05 04 pre J Box'
+img_filename = 'CP1 2005 05 04 post J Box'
+# img_filename = 'CP1 2006 05 08 08 38 37 via D Houtz'
+# img_filename = 'CP1 2007 04 26 Koni'
 
 do_image=1
 
@@ -772,6 +776,27 @@ if img_filename=='CP1 2002 05 24 J Box-2':
     THz1=453 ; ground_under_TH_1=663
     THz2=316 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=342 ; top_of_wind_sensor_body=315 
+    
+if img_filename=='CP1 2005 05 04 pre J Box': 
+    print(img_filename)
+    profile_lower_y=1536 ; profile_upper_y=1078 # to check profile dz
+    bottom_of_sonic_1=1301 ; ground_under_sonic1=1601
+    bottom_of_sonic_2=np.nan ; ground_under_sonic2=np.nan
+    Wz1=1481 ; ground_under_wind_1=1725
+    Wz2=959 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1381 ; ground_under_TH_1=1577
+    THz2=948 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1058 ; top_of_wind_sensor_body=948 
+    
+if img_filename=='CP1 2005 05 04 post J Box': #template
+    profile_lower_y=1408 ; profile_upper_y=1131 # to check profile dz
+    bottom_of_sonic_1=1241 ; ground_under_sonic1=2147
+    bottom_of_sonic_2=873 ; ground_under_sonic2=2068
+    Wz1=1369 ; ground_under_wind_1=2077
+    Wz2=1115 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1319 ; ground_under_TH_1=2121
+    THz2=1029 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1417 ; top_of_wind_sensor_body=1364 
 
 
 
