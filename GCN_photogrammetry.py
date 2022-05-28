@@ -210,9 +210,8 @@ os.system('ls -lF '+base_path)
 #%% close the window
 cv2.destroyAllWindows()
 
-#%%
+#%% DYE-2
 
-# DYE-2
 #img_filename='DY2 1996 05 28a J Box'
 #img_filename='DY2 1997 04 18a J Box'
 #img_filename='DY2 1998 04 27b pre2 J Box'
@@ -247,7 +246,8 @@ cv2.destroyAllWindows()
 # img_filename='DY2 2018 05 20 16 00 20 via D Houtz'
 # img_filename='DY2 2019 05 17 23 43 41 via D Houtz'
 
-# Crawford Point 1
+#%% Crawford Point 1
+
 # img_filename = 'CP1 1995 05 23'
 # img_filename = 'CP1 1998 05 31a post J Box'
 # img_filename = 'CP1 2002 05 24 J Box-2'
@@ -256,6 +256,22 @@ img_filename = 'CP1 2005 05 04 post J Box'
 # img_filename = 'CP1 2006 05 08 08 38 37 via D Houtz'
 # img_filename = 'CP1 2007 04 26 Koni'
 
+
+#%% Summit
+
+img_filename = 'SUM 2004 04 04 12 09 14 via D Houtz'
+img_filename = 'SUM 2005 05 27 J Box'
+img_filename = 'SUM 2006 05 02 15 50 13 via D Houtz'
+img_filename = 'SUM 2008 05 02 15 55 47 via D Houtz'
+img_filename = 'SUM 2009 05 19 16 36 08 via D Houtz'
+img_filename = 'SUM 2011 06 06 05 22 37 via D Houtz'
+img_filename = 'SUM 2013 05 29 16 58 06 via D Houtz'
+img_filename = 'SUM 2014 05 16 08 35 55 via D Houtz'
+img_filename = 'SUM 2015 05 23 23 23 10 via D Houtz'
+img_filename = 'SUM 2016 05 21 21 23 34 via D Houtz'
+img_filename = 'SUM 2018 05 21 19 16 05 via D Houtz'
+
+#%%
 do_image=1
 
 if do_image:
@@ -330,6 +346,8 @@ wind_sensor_dz=0.277 # meters
 #     THz1=0 ; ground_under_TH_1=0
 #     THz2=0 ; ground_under_TH_2=ground_under_TH_1
 #     bottom_of_wind_sensor=0 ; top_of_wind_sensor_body=0 
+
+#%% DYE-2
 
 # DYE-2
 
@@ -745,7 +763,7 @@ if img_filename=='DY2 2019 05 17 23 43 41 via D Houtz':
     THz2=np.nan ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=2200 ; top_of_wind_sensor_body=2034 
     
-# Crawford Point 1
+#%% Crawford Point 1
 
 if img_filename=='CP1 1995 05 23': 
     profile_lower_y=1555 ; profile_upper_y=1012 # to check profile dz
@@ -797,9 +815,122 @@ if img_filename=='CP1 2005 05 04 post J Box': #template
     THz1=1319 ; ground_under_TH_1=2121
     THz2=1029 ; ground_under_TH_2=ground_under_TH_1
     bottom_of_wind_sensor=1417 ; top_of_wind_sensor_body=1364 
+    
+#%%
 
+#%% Summit
 
+if img_filename=='SUM 2004 04 04 12 09 14 via D Houtz': 
+    profile_lower_y=1202 ; profile_upper_y=936 # to check profile dz
+    bottom_of_sonic_1=1017 ; ground_under_sonic1=1369
+    bottom_of_sonic_2=783 ; ground_under_sonic2=1347
+    Wz1=1106 ; ground_under_wind_1=1340
+    Wz2=848 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1115 ; ground_under_TH_1=1374
+    THz2=838 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=895 ; top_of_wind_sensor_body=844 
 
+if img_filename=='SUM 2005 05 27 J Box': # sonic 1 missing
+    profile_lower_y=1421 ; profile_upper_y=1079 # to check profile dz
+    bottom_of_sonic_1=np.nan ; ground_under_sonic1=np.nan
+    bottom_of_sonic_2=1122 ; ground_under_sonic2=2204
+    Wz1=1308 ; ground_under_wind_1=2118
+    Wz2=980 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1267 ; ground_under_TH_1=2192
+    THz2=921 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1372 ; top_of_wind_sensor_body=1302 
+
+if img_filename=='SUM 2006 05 02 15 50 13 via D Houtz': #template
+    profile_lower_y=1370 ; profile_upper_y=1040 # to check profile dz
+    bottom_of_sonic_1=1126 ; ground_under_sonic1=1986
+    bottom_of_sonic_2=821 ; ground_under_sonic2=1993
+    Wz1=1255 ; ground_under_wind_1=1953
+    Wz2=929 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1251 ; ground_under_TH_1=1971
+    THz2=918 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1321 ; top_of_wind_sensor_body=1247 
+
+if img_filename=='SUM 2008 05 02 15 55 47 via D Houtz': #template
+    profile_lower_y=2272 ; profile_upper_y=1729 # to check profile dz
+    bottom_of_sonic_1=1882 ; ground_under_sonic1=2910
+    bottom_of_sonic_2=1390 ; ground_under_sonic2=2850
+    Wz1=2062 ; ground_under_wind_1=2781
+    Wz2=1565 ; ground_under_wind_2=ground_under_wind_1
+    THz1=2088 ; ground_under_TH_1=2861
+    THz2=1509 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1663 ; top_of_wind_sensor_body=1553 
+
+if img_filename=='SUM 2009 05 19 16 36 08 via D Houtz': #template
+    profile_lower_y=3150 ; profile_upper_y=2364 # to check profile dz
+    bottom_of_sonic_1=2562 ; ground_under_sonic1=3664
+    bottom_of_sonic_2=2113 ; ground_under_sonic2=4170
+    Wz1=2914 ; ground_under_wind_1=3924
+    Wz2=2066 ; ground_under_wind_2=ground_under_wind_1
+    THz1=2854 ; ground_under_TH_1=3688
+    THz2=2098 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=3089 ; top_of_wind_sensor_body=2905 
+
+if img_filename=='SUM 2011 06 06 05 22 37 via D Houtz': #template
+    profile_lower_y=2029 ; profile_upper_y=1646 # to check profile dz
+    bottom_of_sonic_1=1817 ; ground_under_sonic1=2967
+    bottom_of_sonic_2=1445 ; ground_under_sonic2=3180
+    Wz1=1854 ; ground_under_wind_1=3076
+    Wz2=1432 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1919 ; ground_under_TH_1=2972
+    THz2=1549 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=1937 ; top_of_wind_sensor_body=1845 
+
+if img_filename=='SUM 2013 05 29 16 58 06 via D Houtz': #template
+    profile_lower_y=2131 ; profile_upper_y=1600 # to check profile dz
+    bottom_of_sonic_1=1722 ; ground_under_sonic1=3089
+    bottom_of_sonic_2=1358 ; ground_under_sonic2=3154
+    Wz1=1950 ; ground_under_wind_1=3052
+    Wz2=1410 ; ground_under_wind_2=ground_under_wind_1
+    THz1=1925 ; ground_under_TH_1=3073
+    THz2=1398 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2061 ; top_of_wind_sensor_body=1949 
+
+if img_filename== 'SUM 2014 05 16 08 35 55 via D Houtz': #template
+    profile_lower_y=2993 ; profile_upper_y=2062 # to check profile dz
+    bottom_of_sonic_1=2368 ; ground_under_sonic1=4097
+    bottom_of_sonic_2=2014 ; ground_under_sonic2=4282
+    Wz1=2668 ; ground_under_wind_1=4541
+    Wz2=1729 ; ground_under_wind_2=ground_under_wind_1
+    THz1=2646 ; ground_under_TH_1=4250
+    THz2=1809 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=2851 ; top_of_wind_sensor_body=2643 
+
+if img_filename=='SUM 2015 05 23 23 23 10 via D Houtz': #template
+    profile_lower_y=3394 ; profile_upper_y=2538 # to check profile dz
+    bottom_of_sonic_1=2803 ; ground_under_sonic1=4207
+    bottom_of_sonic_2=2392 ; ground_under_sonic2=4050
+    Wz1=3087 ; ground_under_wind_1=4189
+    Wz2=2249 ; ground_under_wind_2=ground_under_wind_1
+    THz1=3095 ; ground_under_TH_1=4225
+    THz2=2245 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=3246; top_of_wind_sensor_body=3067 
+
+if img_filename=='SUM 2016 05 21 21 23 34 via D Houtz': #template
+    profile_lower_y=6177 ; profile_upper_y=4384 # to check profile dz
+    bottom_of_sonic_1=5029 ; ground_under_sonic1=7688
+    bottom_of_sonic_2=4115 ; ground_under_sonic2=6463
+    Wz1=5354 ; ground_under_wind_1=6909
+    Wz2=3876 ; ground_under_wind_2=ground_under_wind_1
+    THz1=5589 ; ground_under_TH_1=7278
+    THz2=3764 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=5645 ; top_of_wind_sensor_body=5332
+
+if img_filename=='SUM 2018 05 21 19 16 05 via D Houtz': #template
+    profile_lower_y=5021 ; profile_upper_y=3462 # to check profile dz
+    bottom_of_sonic_1=3956 ; ground_under_sonic1=7363
+    bottom_of_sonic_2=2864 ; ground_under_sonic2=7685
+    Wz1=4509 ; ground_under_wind_1=7733
+    Wz2=2746 ; ground_under_wind_2=ground_under_wind_1
+    THz1=4452 ; ground_under_TH_1=7357
+    THz2=2960 ; ground_under_TH_2=ground_under_TH_1
+    bottom_of_wind_sensor=3097 ; top_of_wind_sensor_body=2725 
+
+#%%
 
 image_scale=(bottom_of_wind_sensor-top_of_wind_sensor_body)/wind_sensor_dz # pixels per m
 print("image_scale = {:.0f}".format(image_scale)+' pixels per m')
