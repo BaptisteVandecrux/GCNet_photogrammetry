@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7729252.svg)](https://doi.org/10.5281/zenodo.7729252)
+
 # GC-Net weather station geometry from field picture photogrammetry
 
 Box, J., Revheim, M., Vandecrux, B.
